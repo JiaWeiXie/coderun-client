@@ -1,0 +1,18 @@
+version: "2"
+
+x-logging: &logging
+  logging:
+    driver: json-file
+    options:
+      max-size: 100M
+
+services:
+  web:
+    build: .
+    image: coderun_client:latest
+    ports:
+      - "8500:8500"
+    environment:
+      - JUDGE0_URL=${JUDGE0_URL:-http://localhost:2358}
+    <<: *logging
+    restart: always

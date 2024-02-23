@@ -1,0 +1,99 @@
+[tool.poetry]
+name = "code-run-client"
+version = "0.1.0"
+description = ""
+authors = ["jasonxie <x5758x@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.31.1"
+streamlit-ace = "^0.1.1"
+requests = "^2.31.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.22.1"
+
+
+[tool.poetry.group.lint.dependencies]
+ruff = "^0.2.2"
+pyright = "^1.1.351"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+target-version = "py311"
+lint.select = [
+  # pyflakes
+  "F",
+  # pycodestyle
+  "E",
+  "W",
+  # pep8-naming
+  "N",
+  # pylint
+  "PL",
+  # mccabe
+  "C90",
+  # isort
+  "I",
+  # pydocstyle
+  "D",
+  # pyupgrade
+  "UP",
+  # flake8-builtins
+  "A",
+  # flake8-commas
+  "COM",
+  # flake8-bugbear
+  "B",
+  # flake8-comprehensions
+  "C4",
+  # flake8-type-checking
+  "TCH",
+  # flake8-datetimez
+  "DTZ",
+  # flake8-print
+  "T20",
+  # flake8-tidy-imports
+  "TID",
+  # flake8-simplify
+  "SIM",
+  # flake8-quotes
+  "Q",
+  # flake8-use-pathlib
+  "PTH",
+  # flake8-import-conventions
+  "ICN",
+]
+lint.ignore = [
+  # pydocstyle: Do not require any docstring
+  "D100",
+  "D101",
+  "D102",
+  "D103",
+  "D104",
+  "D105",
+  "D106",
+  "D107",
+  "D212",
+  "D203",
+  # pydocstyle: Allow blank line after docstring
+  "D202",
+  "COM812",
+]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pyright]
+pythonVersion = "3.11"
+typeCheckingMode = "basic"
+reportUnnecessaryTypeIgnoreComment = true
