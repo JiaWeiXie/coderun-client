@@ -13,7 +13,7 @@ COPY poetry.lock poetry.lock
 
 RUN export POETRY_HOME=/opt/poetry \
   && curl -sSL https://install.python-poetry.org | python - --version 1.6.1 \
-  && $POETRY_HOME/bin/poetry export -f requirements.txt --output requirements.txt --without-hashes --with ui \
+  && $POETRY_HOME/bin/poetry export -f requirements.txt --output requirements.txt --without-hashes \
   && pip install --no-cache-dir --disable-pip-version-check --no-warn-script-location --upgrade pip setuptools \
   && pip install --no-cache-dir --disable-pip-version-check --no-warn-script-location --user -r requirements.txt
 
